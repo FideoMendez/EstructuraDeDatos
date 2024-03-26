@@ -56,6 +56,7 @@ int main() {
 			cout << "Ingrese desde donde desea extraer el substring: ";
 			cin >> pos;
 			cout << "String substraido: " << mstring.Substraer(pos) << endl << endl;
+			break;
 		case 5:
 			cin.ignore();
 			cout << "Ingrese un nombre o cadena: ";
