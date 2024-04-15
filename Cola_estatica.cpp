@@ -4,10 +4,19 @@
 
 using namespace std;
 
+class Datos
+{
+public:
+    int codigo;
+    string titulo;
+    string editorial;
+    string autor;
+};
+
 class Cola
 {
 private:
-    int info[MAX];
+    Dato info[MAX];
     int inicio, fin;
 
 public:
