@@ -35,6 +35,7 @@ public:
 	Cola();
 	void Encolar(Nodo*& inicio, Nodo*& fin);
 	void Desencolar(Nodo*& inicio);
+	void MostrarCola(Nodo* inicio);
 };
 
 Cola::Cola() {
@@ -46,7 +47,7 @@ void Cola::Encolar(Nodo*& inicio, Nodo*& fin) { //Punteros enviados por referenc
     if (inicio == NULL) {
         inicio = fin = Elemento; //Le asigno la direccion del primer nodo          
         cout << "Codigo: "; cin >> Elemento->dato.Codigo;
-        cout << "Nombres: s"; cin >> Elemento->dato.Nombre;
+        cout << "Nombres: "; cin >> Elemento->dato.Nombre;
         cout << "Carrera: "; cin >> Elemento->dato.Carrera;
     }
     else {
@@ -70,6 +71,21 @@ void Cola::Desencolar(Nodo*& inicio) {
     }
 }
 
+void Cola::MostrarCola(Nodo* inicio) {
+    Nodo* temp = inicio; // Usamos un nodo temporal para no modificar el puntero original de inicio
+    if (temp == NULL) {
+        cout << "La cola está vacía" << endl;
+        return;
+    }
+    cout << "Elementos en la cola:" << endl;
+    while (temp != NULL) {
+        cout << "Codigo: " << temp->dato.Codigo << endl;
+        cout << "Nombre: " << temp->dato.Nombre << endl;
+        cout << "Carrera: " << temp->dato.Carrera << endl;
+        temp = temp->puntero; // Avanzamos al siguiente nodo
+    }
+}
+
 int main(int argc, char* argv[]) {
     Cola cola;
     Nodo* inicio = NULL, * fin = NULL; //Punteros libres para el manejo de la cola
@@ -78,7 +94,8 @@ int main(int argc, char* argv[]) {
         cout << "1. LA COLA ESTA VACIA?" << endl;
         cout << "2. ENCOLAR" << endl;
         cout << "3. DESENCOLAR" << endl;
-        cout << "4. FINALIZAR" << endl;
+	cout << "4. MOSTRAR" << endl;
+        cout << "5. FINALIZAR" << endl;
         cout << "Opcion: "; cin >> opc;
         switch (opc) {
         case 1:
@@ -93,8 +110,13 @@ int main(int argc, char* argv[]) {
         case 3:
             cola.Desencolar(inicio);
             break;
+	case 4:
+	    cola.MostrarCola(inicio);	
+	    break;
+	default:
+	    cout << "Ingrese una opcion valida." << endl;
         }
-    } while (opc != 4);
+    } while (opc != 5);
 
     return 0;
 }
