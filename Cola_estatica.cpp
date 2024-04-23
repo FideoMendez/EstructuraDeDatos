@@ -4,19 +4,10 @@
 
 using namespace std;
 
-class Datos
-{
-public:
-    int codigo;
-    string titulo;
-    string editorial;
-    string autor;
-};
-
 class Cola
 {
 private:
-    Dato info[MAX];
+    int info[MAX];
     int inicio, fin;
 
 public:
@@ -108,7 +99,7 @@ void Cola::VaciarCola(void)
 int main()
 {
     Cola cola;
-    int opcion, Valor;
+    int opcion;
     do
     {
         cout << "Menú de opciones:" << endl;
